@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\22\Homework9\hw9\h5\h5\h5.csproj" />
     <ProjectReference Include="..\h5\h5\h5.csproj" />
   </ItemGroup>
 
