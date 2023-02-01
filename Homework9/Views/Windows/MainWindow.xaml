@@ -17,7 +17,7 @@
         <GroupBox Header="Результат"
                   Grid.Column="0"
                   Margin="6,5">
-            <ListBox x:Name="result">
+            <ListBox x:Name="result" ItemsSource="{Binding Path=Groups}">
             </ListBox>
         </GroupBox>
         <GroupBox Grid.Column="1" 
@@ -28,7 +28,7 @@
                   VerticalAlignment="Stretch" 
                   >
             <StackPanel>
-                <TextBox x:Name="txtSend" 
+                <TextBox x:Name="InputText" 
                          FontSize="20" 
                          Margin="6"
                          Height="50"
@@ -38,7 +38,8 @@
                 <Button FontSize="20" 
                         Content="Отправить" 
                         Margin="5"
-                        Click="{Binding SendText}"/>
+                        Click="Button_Click"
+                        />
 
                 <Button x:Name="btnDivideTxt" 
                         FontSize="20" 
