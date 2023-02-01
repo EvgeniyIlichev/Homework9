@@ -4,15 +4,13 @@ namespace Homework9
 {
     public partial class MainWindow : Window
     {
+        public static string inputText;
 
         public MainWindow()
         {
             InitializeComponent();
+            inputText = inputTextBlock.Text;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }
