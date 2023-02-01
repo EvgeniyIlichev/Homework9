@@ -1,18 +1,31 @@
-﻿using System.Windows;
+﻿using h5;
+using Homework9.Models;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Homework9
 {
     public partial class MainWindow : Window
     {
 
-        public static string inputText = "2222";
+        List<string> InputWords { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            inputText = inputTextBlock.Text;
-            
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            result.Items.Clear();
+            Program.countWords = Program.CountWords(inputTextBlock.Text);
+            InputWords = Program.WordsInText(inputTextBlock.Text, Program.countWords);
+            foreach (var word in InputWords)
+            {
+                result.Items.Add(word);
+            }
+
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using h5;
 using Homework9.Infrastructure.Commands;
+using Homework9.Models;
 using Homework9.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,6 @@ namespace Homework9.ViewModels
 {
     class MainWindowViewModels : ViewModel
     {
-        private string _Words = "1234";
-
-        public string Words { get => _Words; set => Set(ref _Words, value); }
-
         #region Titul
 
         private string _Title = "Домашнее задание 9";
@@ -27,21 +24,10 @@ namespace Homework9.ViewModels
             set => Set(ref _Title, value);
         }
         #endregion
-        public ICommand SendText
-        {
-            get;
-        }
-
-        private bool CanSendTextExecute(object p) => true;
-        private void OnSendTextExecuted(object p)
-        {
-            Words = MainWindow.inputText;
-            
-        }
 
         public MainWindowViewModels()
         {
-            SendText = new LambdaCommand(OnSendTextExecuted, CanSendTextExecute);
+
         }
     }
 }
