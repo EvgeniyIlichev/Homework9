@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Homework9.ViewModels"
         xmlns:l="clr-namespace:Homework9"
-        Title="Домашнее задание 9" Height="450" Width="800">
+        Title="{Binding Path=Title}" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModels/>
+    </Window.DataContext>
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -32,10 +35,10 @@
                          TextWrapping="Wrap"
                          ScrollViewer.VerticalScrollBarVisibility="Auto"/>
 
-                <Button x:Name="btnTxtSend" 
-                        FontSize="20" 
+                <Button FontSize="20" 
                         Content="Отправить" 
-                        Margin="5"/>
+                        Margin="5"
+                        Click="{Binding SendText}"/>
 
                 <Button x:Name="btnDivideTxt" 
                         FontSize="20" 
