@@ -14,6 +14,10 @@ namespace Homework9.ViewModels
 {
     class MainWindowViewModels : ViewModel
     {
+        private string _Words = "1234";
+
+        public string Words { get => _Words; set => Set(ref _Words, value); }
+
         #region Titul
 
         private string _Title = "Домашнее задание 9";
@@ -31,7 +35,7 @@ namespace Homework9.ViewModels
         private bool CanSendTextExecute(object p) => true;
         private void OnSendTextExecuted(object p)
         {
-
+            Words = MainWindow.inputText;
             
         }
 

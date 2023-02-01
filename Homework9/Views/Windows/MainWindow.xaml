@@ -18,6 +18,7 @@
                   Grid.Column="0"
                   Margin="6,5">
             <ListBox x:Name="result">
+                <TextBox Text="{Binding Words}" FontSize="23"/>
             </ListBox>
         </GroupBox>
         <GroupBox Grid.Column="1" 
