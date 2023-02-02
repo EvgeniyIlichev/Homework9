@@ -9,7 +9,7 @@
     <Window.DataContext>
         <vm:MainWindowViewModels/>
     </Window.DataContext>
-    <Grid ShowGridLines="True">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>

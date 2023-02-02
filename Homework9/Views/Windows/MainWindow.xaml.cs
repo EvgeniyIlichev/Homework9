@@ -10,13 +10,16 @@ namespace Homework9
     {
 
         List<string> inputWords { get; set; }
-        string revSentence;
 
         public MainWindow()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Кнопка разделение текста на слова
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GetWords(object sender, RoutedEventArgs e)
         {
             result.Items.Clear();
@@ -27,7 +30,11 @@ namespace Homework9
             }
 
         }
-
+        /// <summary>
+        /// Кнопка создания реверс предложения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ReverseSentence(object sender, RoutedEventArgs e)
         {
             sentence.Text = string.Empty;
