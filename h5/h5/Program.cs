@@ -43,6 +43,7 @@ namespace h5
         /// <returns></returns>
         public static List<string> TextInWords(string text)
         {
+            List<string> words = new List<string>();
             string newWord = string.Empty; //переменная для нового слова
             char[] wordsChar = text.ToCharArray(); //массив вводимого текста преобразованного в символы
             bool charUp = false; //условие для определения индекса символа
@@ -87,6 +88,7 @@ namespace h5
          /// <returns></returns>
         public static string WordsInReverseSentence(List<string> words)
         {
+            string reverseSentence = string.Empty;
             words.Reverse();//реверс коллекции
             foreach (var word in words)
             {   //Первое слово в предложение будет с большой буквы

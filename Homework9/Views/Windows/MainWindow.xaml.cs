@@ -9,7 +9,8 @@ namespace Homework9
     public partial class MainWindow : Window
     {
 
-        List<string> InputWords { get; set; }
+        List<string> inputWords { get; set; }
+        string revSentence;
 
         public MainWindow()
         {
@@ -19,12 +20,19 @@ namespace Homework9
         private void GetWords(object sender, RoutedEventArgs e)
         {
             result.Items.Clear();
-            InputWords = Program.TextInWords(inputTextBlock.Text);
-            foreach (var word in InputWords)
+            inputWords = Program.TextInWords(inputTextBlock.Text);
+            foreach (var word in inputWords)
             {
                 result.Items.Add(word);
             }
 
+        }
+
+        private void ReverseSentence(object sender, RoutedEventArgs e)
+        {
+            sentence.Text = string.Empty;
+            inputWords = Program.TextInWords(inputTextBlock.Text);
+            sentence.Text = Program.WordsInReverseSentence(inputWords);
         }
     }
 }

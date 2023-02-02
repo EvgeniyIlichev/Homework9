@@ -14,17 +14,30 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <GroupBox Grid.Column="0"
                   Header="Результат"
-                  Margin="6,5">
-            <ListBox x:Name="result">
+                  Margin="6,5"
+                  >
+            <ListBox x:Name="result"
+                     Grid.Row="0"                         
+                     ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <Label>
+                    
+                </Label>
             </ListBox>
         </GroupBox>
-        <GroupBox Grid.Column="0"
-                  Margin="6,5">
-            <Label x:Name="sentence">
-            </Label>
-        </GroupBox>
+        <Label Grid.Column="0"
+               Grid.Row="1"
+               Margin="5"
+               Background="LightGray"
+               >
+            <TextBlock x:Name="sentence"
+                       TextWrapping="Wrap"/>
+        </Label>
         <GroupBox Grid.Column="1" 
                   FontSize="20"
                   Header="Отправка текста"
@@ -42,15 +55,14 @@
                          />
 
                 <Button FontSize="20" 
-                        Content="Отправить" 
+                        Content="Получить слова" 
                         Margin="5"
                         Click="GetWords"
                         />
-
-                <Button x:Name="btnDivideTxt" 
-                        FontSize="20" 
-                        Content="Разделить слова" 
-                        Margin="5" 
+                <Button FontSize="20" 
+                        Content="Реверс текста"
+                        Margin="5"
+                        Click="ReverseSentence"
                         />
             </StackPanel>
         </GroupBox>
