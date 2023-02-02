@@ -18,8 +18,9 @@ namespace h5
         {
             text = InputText(); //Ввели текст
             words = TextInWords(text); //Получили слова
+            reverseSentence = WordsInReverseSentence(words);//получили предложение
             OutputWordsNewLine(words); //Вывели слова
-            OutputReverseSentence(WordsInReverseSentence(words));//Вывод предложения
+            OutputReverseSentence(reverseSentence);//Вывод предложения
             Console.ReadKey(); //Пауза консоли
         }
         

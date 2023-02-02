@@ -14,11 +14,16 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <GroupBox Header="Результат"
-                  Grid.Column="0"
+        <GroupBox Grid.Column="0"
+                  Header="Результат"
                   Margin="6,5">
             <ListBox x:Name="result">
             </ListBox>
+        </GroupBox>
+        <GroupBox Grid.Column="0"
+                  Margin="6,5">
+            <Label x:Name="sentence">
+            </Label>
         </GroupBox>
         <GroupBox Grid.Column="1" 
                   FontSize="20"
@@ -39,7 +44,7 @@
                 <Button FontSize="20" 
                         Content="Отправить" 
                         Margin="5"
-                        Click="Button_Click"
+                        Click="GetWords"
                         />
 
                 <Button x:Name="btnDivideTxt" 

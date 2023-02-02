@@ -16,7 +16,7 @@ namespace Homework9
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GetWords(object sender, RoutedEventArgs e)
         {
             result.Items.Clear();
             InputWords = Program.TextInWords(inputTextBlock.Text);
