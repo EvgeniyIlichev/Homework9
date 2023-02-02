@@ -14,31 +14,23 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <GroupBox Grid.Column="0"
+        <StackPanel Grid.Column="0">
+            <GroupBox 
                   Header="Результат"
                   Margin="6,5"
+                  Height="250"
                   >
-            <ListBox x:Name="result"
-                     Grid.Row="0"                         
+                <ListBox x:Name="result"                       
                      ScrollViewer.VerticalScrollBarVisibility="Auto">
-                <Label>
-                    
-                </Label>
-            </ListBox>
-        </GroupBox>
-        <Label Grid.Column="0"
-               Grid.Row="1"
-               Margin="5"
-               Background="LightGray"
-               >
-            <TextBlock x:Name="sentence"
+                </ListBox>
+            </GroupBox>
+            <Label Margin="5">
+                <TextBlock x:Name="sentence"
                        TextWrapping="Wrap"/>
-        </Label>
-        <GroupBox Grid.Column="1" 
+            </Label>
+        </StackPanel>
+        
+        <GroupBox Grid.Column="1"
                   FontSize="20"
                   Header="Отправка текста"
                   HorizontalAlignment="Stretch" 
@@ -46,7 +38,7 @@
                   VerticalAlignment="Stretch" 
                   >
             <StackPanel>
-                <TextBox x:Name="inputTextBlock" 
+                <TextBox x:Name="inputTextGetWords" 
                          FontSize="20" 
                          Margin="6"
                          Height="50"
@@ -59,6 +51,13 @@
                         Margin="5"
                         Click="GetWords"
                         />
+                <TextBox x:Name="inputTextGetReverse" 
+                         FontSize="20" 
+                         Margin="6"
+                         Height="50"
+                         TextWrapping="Wrap"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         />
                 <Button FontSize="20" 
                         Content="Реверс текста"
                         Margin="5"

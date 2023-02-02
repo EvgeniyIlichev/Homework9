@@ -23,7 +23,7 @@ namespace Homework9
         private void GetWords(object sender, RoutedEventArgs e)
         {
             result.Items.Clear();
-            inputWords = Program.TextInWords(inputTextBlock.Text);
+            inputWords = Program.TextInWords(inputTextGetWords.Text);
             foreach (var word in inputWords)
             {
                 result.Items.Add(word);
@@ -38,7 +38,7 @@ namespace Homework9
         private void ReverseSentence(object sender, RoutedEventArgs e)
         {
             sentence.Text = string.Empty;
-            inputWords = Program.TextInWords(inputTextBlock.Text);
+            inputWords = Program.TextInWords(inputTextGetReverse.Text);
             sentence.Text = Program.WordsInReverseSentence(inputWords);
         }
     }
