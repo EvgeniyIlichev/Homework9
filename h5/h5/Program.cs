@@ -8,66 +8,69 @@ namespace h5
 {
     public partial class Program
     {
-        public static string text;
-        public static int countWords;
-        public static List<string> words;
+        //---------------Объявления----------------------------
+        public static string text; //Переменна для вводимого текста
+        public static List<string> words = new List<string>(); //Коллекция для слов
+        public static string reverseSentence; //Переменная для предложения в обратном порядке
+        
+        //--------------Главныц метод--------------------------     
         static void Main(string[] args)
         {
-            text = InputText();
-            countWords = CountWords(text);
-            words = WordsInText(text, countWords);
-            WriteWordsNewLine(words);
-            Console.ReadKey();
+            text = InputText(); //Ввели текст
+            words = TextInWords(text); //Получили слова
+            OutputWordsNewLine(words); //Вывели слова
+            OutputReverseSentence(WordsInReverseSentence(words));//Вывод предложения
+            Console.ReadKey(); //Пауза консоли
         }
-
+        
+        //--------------Ввод данных--------------------------     
+        /// <summary>
+        /// Метод ввода текста
+        /// </summary>
+        /// <returns></returns>
         public static string InputText()
         {
-            string text = Console.ReadLine();
+            text = Console.ReadLine();
             return text;
         }
-        public static int CountWords(string text) 
+        
+        //--------------Преобразования--------------------------     
+        /// <summary>
+        /// Метод преобазования текста в коллекцию отдельных слов
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static List<string> TextInWords(string text)
         {
-            int countWords = 0;
-            char[] wordsChar = text.ToCharArray();
+            string newWord = string.Empty; //переменная для нового слова
+            char[] wordsChar = text.ToCharArray(); //массив вводимого текста преобразованного в символы
+            bool charUp = false; //условие для определения индекса символа
+            //Перебираем все символы в массиве
             for (int i = 0; i < wordsChar.Length; i++)
-            {
-                if (wordsChar[i] == ' ')
-                {
-                    countWords++;
-                }
-            }
-            return countWords;
-        }
-        public static List<string> WordsInText(string text, int countWords)
-        {
-            string newLes = string.Empty;
-            int countSpace = 0;
-            List<string> words = new List<string>();
-            string newWord = string.Empty;
-            char[] wordsChar = text.ToCharArray();
-            bool charUp = false;
-            for (int i = 0; i < wordsChar.Length; i++)
-            {
+            {   //если символ пробел
                 if (wordsChar[i] == ' ' )
-                {
-                    words.Add(newWord);
-                    newWord= string.Empty;
-                    countSpace++;
-                    charUp = false;
-                    continue;
+                {   //проверяем не является новое слово пустым
+                    if (newWord == string.Empty) continue;
+                    else
+                    {   //и если оно не пустое
+                        words.Add(newWord); //добавляем в коллекцию
+                        newWord = string.Empty; //делаем переменную пустой
+                        charUp = false; //следующее слово с большой буквы
+                        continue;
+                    }
                 }
                 else
-                {
+                {   
                     if (!charUp)
                     {
-                        newLes = wordsChar[i].ToString().ToUpper();
+                        newWord += wordsChar[i].ToString().ToUpper();//делаем букву большой
                         charUp = true;
                     }
                     else
                     {
-                        newLes = wordsChar[i].ToString().ToLower();
+                        newWord += wordsChar[i].ToString().ToLower();//делаем букву маленькой
                     }
-                    newWord += newLes;
+                    //доходя до конца массива добавляем новое слово в коллекцию
                     if (i == wordsChar.Length - 1)
                     {
                         words.Add(newWord);
@@ -76,12 +79,47 @@ namespace h5
             }
             return words;
         }
-        public static void WriteWordsNewLine(List<string> words)
+         /// <summary>
+         /// Преобразование вводимых слов в реверс предложение
+         /// </summary>
+         /// <param name="words"></param>
+         /// <returns></returns>
+        public static string WordsInReverseSentence(List<string> words)
+        {
+            words.Reverse();//реверс коллекции
+            foreach (var word in words)
+            {   //Первое слово в предложение будет с большой буквы
+                if(word != words.First())
+                {
+                    reverseSentence += word.ToLower() + " ";
+                }
+                else
+                {
+                    reverseSentence += word + " ";
+                }
+            }
+            return reverseSentence;
+        }
+        
+        //--------------Вывод----------------------------------     
+        /// <summary>
+        /// Метод вывода коллекции в консоль(каждое слово с новой строчки)
+        /// </summary>
+        /// <param name="words"></param>
+        public static void OutputWordsNewLine(List<string> words)
         {
             foreach (var word in words)
             {
                 Console.WriteLine(word);
             }
+        }
+        /// <summary>
+        /// Метод вывода реверс предложения
+        /// </summary>
+        /// <param name="reverseSentence"></param>
+        public static void OutputReverseSentence(string reverseSentence)
+        {
+            Console.WriteLine(reverseSentence);
         }
     }
 }

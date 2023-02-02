@@ -19,8 +19,7 @@ namespace Homework9
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             result.Items.Clear();
-            Program.countWords = Program.CountWords(inputTextBlock.Text);
-            InputWords = Program.WordsInText(inputTextBlock.Text, Program.countWords);
+            InputWords = Program.TextInWords(inputTextBlock.Text);
             foreach (var word in InputWords)
             {
                 result.Items.Add(word);
