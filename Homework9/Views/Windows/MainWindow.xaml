@@ -9,36 +9,35 @@
     <Window.DataContext>
         <vm:MainWindowViewModels/>
     </Window.DataContext>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <GroupBox 
+    <DockPanel>
+        <TabControl>
+            <TabItem Header="Слова">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <GroupBox 
                   Header="Результат"
                   Margin="6,5"
                   Height="250"
                   >
-                <ListBox x:Name="result"                       
+                            <ListBox x:Name="result"                       
                      ScrollViewer.VerticalScrollBarVisibility="Auto">
-                </ListBox>
-            </GroupBox>
-            <Label Margin="5">
-                <TextBlock x:Name="sentence"
-                       TextWrapping="Wrap"/>
-            </Label>
-        </StackPanel>
-        
-        <GroupBox Grid.Column="1"
+                            </ListBox>
+                        </GroupBox>
+                    </StackPanel>
+
+                    <GroupBox Grid.Column="1"
                   FontSize="20"
                   Header="Отправка текста"
                   HorizontalAlignment="Stretch" 
                   Margin="5"
                   VerticalAlignment="Stretch" 
                   >
-            <StackPanel>
-                <TextBox x:Name="inputTextGetWords" 
+                        <StackPanel>
+                            <TextBox x:Name="inputTextGetWords" 
                          FontSize="20" 
                          Margin="6"
                          Height="50"
@@ -46,25 +45,55 @@
                          ScrollViewer.VerticalScrollBarVisibility="Auto"
                          />
 
-                <Button FontSize="20" 
+                            <Button FontSize="20" 
                         Content="Получить слова" 
                         Margin="5"
                         Click="GetWords"
                         />
-                <TextBox x:Name="inputTextGetReverse" 
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Реверс">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <Label Margin="5">
+                            <TextBlock x:Name="sentence"
+                       TextWrapping="Wrap"/>
+                        </Label>
+                    </StackPanel>
+                    <GroupBox Grid.Column="1"
+                  FontSize="20"
+                  Header="Отправка текста"
+                  HorizontalAlignment="Stretch" 
+                  Margin="5"
+                  VerticalAlignment="Stretch" 
+                  >
+                        <StackPanel>
+                            <TextBox x:Name="inputTextGetReverse" 
                          FontSize="20" 
                          Margin="6"
                          Height="50"
                          TextWrapping="Wrap"
                          ScrollViewer.VerticalScrollBarVisibility="Auto"
                          />
-                <Button FontSize="20" 
+                            <Button FontSize="20" 
                         Content="Реверс текста"
                         Margin="5"
                         Click="ReverseSentence"
                         />
-            </StackPanel>
-        </GroupBox>
-    </Grid>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+
+
+
 </Window>
 
